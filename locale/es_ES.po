@@ -1,0 +1,11 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:party.party,validated:"
+msgid "Validated"
+msgstr "Validado"
+
+msgctxt "model:res.group,name:group_party_validate"
+msgid "Party Validation"
+msgstr "Validación de terceros"
