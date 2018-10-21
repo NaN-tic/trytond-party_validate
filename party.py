@@ -7,32 +7,26 @@ from trytond.modules.party.party import STATES, DEPENDS
 __all__ = ['Party', 'Invoice', 'Sale', 'Purchase']
 
 
-class Party:
+class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
-    __metaclass__ = PoolMeta
 
     validated = fields.Boolean('Validated', states=STATES, depends=DEPENDS)
 
 
-class PartyValidatedMixin:
-    __metaclass__ = PoolMeta
-
+class PartyValidatedMixin(metaclass=PoolMeta):
     @classmethod
     def __setup__(cls):
         super(PartyValidatedMixin, cls).__setup__()
         cls.party.domain.append(('validated', '=', True))
 
 
-class Invoice(PartyValidatedMixin):
+class Invoice(PartyValidatedMixin, metaclass=PoolMeta):
     __name__ = 'account.invoice'
-    __metaclass__ = PoolMeta
 
 
-class Sale(PartyValidatedMixin):
+class Sale(PartyValidatedMixin, metaclass=PoolMeta):
     __name__ = 'sale.sale'
-    __metaclass__ = PoolMeta
 
 
-class Purchase(PartyValidatedMixin):
+class Purchase(PartyValidatedMixin, metaclass=PoolMeta):
     __name__ = 'purchase.purchase'
-    __metaclass__ = PoolMeta
