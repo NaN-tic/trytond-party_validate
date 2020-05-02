@@ -2,15 +2,11 @@
 # the full copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import PoolMeta
-from trytond.modules.party.party import STATES, DEPENDS
-
-__all__ = ['Party', 'Invoice', 'Sale', 'Purchase']
 
 
 class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
-
-    validated = fields.Boolean('Validated', states=STATES, depends=DEPENDS)
+    validated = fields.Boolean('Validated')
 
 
 class PartyValidatedMixin(metaclass=PoolMeta):
